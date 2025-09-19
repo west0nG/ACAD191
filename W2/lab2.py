@@ -9,8 +9,9 @@ userInput = input("Enter a phrase you want! Enter nothing to exit.")
 vowelCount = 0
 while userInput != "":
     for character in userInput:
-        if character in "aeiouAEIOU":
+        if character in "aeiouwAEIOUW":
             vowelCount += 1
-    print(f"There are {vowelCount} vowels in {userInput}")
-    vowelCount = 0 
+    print(f"HI! There are {vowelCount} vowels in {userInput}")
+    vowelCount = 0
     userInput = input("Enter a phrase you want! Enter nothing to exit.")
+
