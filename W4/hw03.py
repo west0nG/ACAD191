@@ -28,8 +28,26 @@ for month in monthDictionary:
 
 #print(Calender)
 
-userInputDate = input("Enter a date for a holiday(for example 'July 1'): ")
+# 打开文件
+fileName = input("Enter file name to read your events: ")
+if fileName != "":
+    try:
+        file = open(fileName + ".txt", "r")
+        for line in file:
+            parts = line.strip().split(": ")
+            if len(parts) == 2:
+                month_day = parts[0].split()
+                if len(month_day) == 2:
+                    month, day = month_day
+                    if month in monthDictionary:
+                        Calender[month][int(day) - 1] = parts[1]
+        file.close()
+    except:
+        print("File not found.")
 
+    #this is not in the requirements i think, but i think it should be added here
+
+userInputDate = input("Enter a date for a holiday(for example 'July 1'): ")
 
 
 while userInputDate != "":
@@ -51,12 +69,6 @@ while userInputDate != "":
             print(f"I don't know about the month '{month}'")
     userInputDate = input("Enter a date for a holiday(for example 'July 1': ")
 
-# print the calender when it's not empty
-for month in Calender:
-    for day in range(1, monthDictionary[month] + 1):
-        if Calender[month][day - 1] != "":
-            print(f"{month} {day}: {Calender[month][day - 1]}")
-
 # save the file
 fileName = input("Enter the file name to save your calender: ")
 
@@ -68,6 +80,13 @@ if fileName != "":
                 file.write(f"{month} {day_index + 1}: {day_content}\n")
     file.close()
     print(f"Calendar saved to {fileName}")
+
+
+# print the calender when it's not empty
+for month in Calender:
+    for day in range(1, monthDictionary[month] + 1):
+        if Calender[month][day - 1] != "":
+            print(f"{month} {day}: {Calender[month][day - 1]}")
 
 
 print("Goodbye!")
