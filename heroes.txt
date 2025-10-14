@@ -1,0 +1,6 @@
+Superman|strength,flight,laser|5
+Batman|intelligence,martial arts,gadgets|4
+Wonder Woman|strength,flight,lasso|6
+Spider-Man|web slinging,spider sense,agility|3
+Iron Man|technology,armor,flight|5
+
